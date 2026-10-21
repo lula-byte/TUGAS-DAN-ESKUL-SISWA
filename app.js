@@ -47,7 +47,7 @@ function driveUrls(id) {
     big: `https://drive.google.com/thumbnail?id=${id}&sz=w1600`
   };
 }
-function apiReady() { return CONFIG.API_URL && !CONFIG.API_URL.includes("https://script.google.com/macros/s/AKfycbxTTGQwOtoHOSnBQT26MEtmFZIrjXV-auhXZFKb9rueDey750Xaxsp_0qPJnDB6BLCc/exec"); }
+function apiReady() { return CONFIG.API_URL && !CONFIG.API_URL.includes("PASTE_URL"); }
 
 /* Semua permintaan memakai text/plain agar tidak memicu preflight CORS di Apps Script */
 async function api(payload) {
