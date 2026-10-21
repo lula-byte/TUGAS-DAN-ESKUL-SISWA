@@ -1,6 +1,16 @@
 /* ============================================================
    Fungsi bersama untuk halaman siswa & guru
    ============================================================ */
+/* Jika config.js gagal dimuat, jangan matikan seluruh halaman: tampilkan pesan yang jelas. */
+if (typeof CONFIG === "undefined") {
+  window.CONFIG = {
+    API_URL: "PASTE_URL_BELUM_TERBACA", NAMA_SEKOLAH: "SMP IT INSAN MULIA MAOS", JUDUL: "DATABASE TUGAS SISWA",
+    CREDIT: "DATABASE TUGAS SISWA SMP IT INSAN MULIA MAOS", MAX_MB: 10, _missing: true
+  };
+  document.addEventListener("DOMContentLoaded", () =>
+    toast("File config.js tidak terbaca. Tekan Ctrl + F5, atau periksa file config.js di GitHub.", "error"));
+}
+
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
