@@ -66,12 +66,12 @@
         </div>
         <div class="field">
           <label id="lblFile">File tugas <small>(gambar, audio, video, dokumen, atau PDF, maksimal 10 MB)</small></label>
-          <div class="dropzone" id="drop" tabindex="0" role="button" aria-labelledby="lblFile">
+          <label class="dropzone" id="drop" for="file" tabindex="0" style="display:block;margin:0">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
             <b>Tarik file ke sini atau klik untuk memilih</b>
             <span>jpg, png, gif, webp, mp3, wav, mp4, webm, pdf, doc, docx, xls, xlsx, ppt, pptx, txt, html</span>
-          </div>
-          <input type="file" id="file" class="hide" accept=".jpg,.jpeg,.png,.gif,.webp,.mp3,.wav,.ogg,.m4a,.aac,.mp4,.webm,.mov,.mkv,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.html,.htm">
+          </label>
+          <input type="file" id="file" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0 0 0 0);pointer-events:none" tabindex="-1" accept=".jpg,.jpeg,.png,.gif,.webp,.mp3,.wav,.ogg,.m4a,.aac,.mp4,.webm,.mov,.mkv,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.html,.htm">
           <p class="sub" style="margin:10px 0 0;font-size:14px">Untuk file HTML, gabungkan CSS dan JavaScript ke dalam satu file agar tampil lengkap saat diperiksa guru.</p>
           <div class="fileinfo" id="fileInfo">
             <span class="tag" id="fiKind"></span>
@@ -118,7 +118,6 @@ function setFile(file) {
 }
 function clearFile() { chosen = null; fileInput.value = ""; $("#fileInfo").classList.remove("on"); }
 
-drop.addEventListener("click", () => fileInput.click());
 drop.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); } });
 fileInput.addEventListener("change", () => setFile(fileInput.files[0]));
 $("#fiClear").addEventListener("click", clearFile);
